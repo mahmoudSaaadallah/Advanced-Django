@@ -1,0 +1,13 @@
+{% load cache %}
+
+<h1>Dashboard</h1>
+
+<p>Normal section: {{ now }}</p>
+
+{% cache 60 stats_block %}
+    <div style="padding:10px; border:1px solid gray; margin-top:10px;">
+        <h3>Cached Section</h3>
+        <p>Expensive data: {{ stats }}</p>
+        <p>Rendered at: {{ now }}</p>
+    </div>
+{% endcache %}
